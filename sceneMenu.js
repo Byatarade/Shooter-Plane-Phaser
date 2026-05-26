@@ -6,7 +6,52 @@ var sceneMenu = new Phaser.Class({
   },
   init: function () {},
   preload: function () {
-    this.load.setBaseURL("Assets/");
+    // Add loading screen
+    var width = this.cameras.main.width;
+    var height = this.cameras.main.height;
+    
+    var progressBar = this.add.graphics();
+    var progressBox = this.add.graphics();
+    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillRect(width / 2 - 160, height / 2 - 25, 320, 50);
+    
+    var loadingText = this.make.text({
+        x: width / 2,
+        y: height / 2 - 50,
+        text: 'Loading...',
+        style: {
+            font: '20px monospace',
+            fill: '#ffffff'
+        }
+    });
+    loadingText.setOrigin(0.5, 0.5);
+    
+    var percentText = this.make.text({
+        x: width / 2,
+        y: height / 2,
+        text: '0%',
+        style: {
+            font: '18px monospace',
+            fill: '#ffffff'
+        }
+    });
+    percentText.setOrigin(0.5, 0.5);
+
+    this.load.on('progress', function (value) {
+        percentText.setText(parseInt(value * 100) + '%');
+        progressBar.clear();
+        progressBar.fillStyle(0xffffff, 1);
+        progressBar.fillRect(width / 2 - 150, height / 2 - 15, 300 * value, 30);
+    });
+
+    this.load.on('complete', function () {
+        progressBar.destroy();
+        progressBox.destroy();
+        loadingText.destroy();
+        percentText.destroy();
+    });
+
+    this.load.setBaseURL("./Assets/");
     // Change these lines:
     this.load.image("BGPlay", "BGPlay.png"); // Was: images/BGPlay.png
     this.load.image("Title", "Title.png");     // Was: images/Title.png
@@ -15,8 +60,8 @@ var sceneMenu = new Phaser.Class({
     this.load.image("ButtonSoundOff", "ButtonSoundOff.png"); // Was: images/ButtonSoundOff.png
     this.load.image("ButtonMusicOn", "ButtonMusicOn.png"); // Was: images/ButtonMusicOn.png
     this.load.image("ButtonMusicOff", "ButtonMusicOff.png"); // Was: images/ButtonMusicOff.png
-    this.load.audio("snd_menu", "music_menu.mp3"); // Was: audio/music_menu.mp3
-    this.load.audio("snd_touchshooter", "fx_touch.mp3"); // Was: audio/fx_touch.mp3
+    this.load.audio("snd_menu", ["music_menu.mp3", "music_menu.ogg"]); 
+    this.load.audio("snd_touchshooter", ["fx_touch.mp3", "fx_touch.ogg"]); 
   },
   create: function () {
     // Initialize global variables for sound settings if they don't exist

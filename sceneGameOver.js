@@ -5,12 +5,12 @@ var sceneGameOver = new Phaser.Class({
   },
   init: function () {},
   preload: function () {
-    this.load.setBaseURL("Assets/");
+    this.load.setBaseURL("./Assets/");
     // Change these lines:
     this.load.image("BGPlay", "BGPlay.png"); // Was: images/BGPlay.png
     this.load.image("ButtonPlay", "ButtonPlay.png"); // Was: images/ButtonPlay.png
-    this.load.audio("snd_gameover", "music_gameover.mp3"); // Was: audio/music_gameover.mp3
-    this.load.audio("snd_touchshooter", "fx_touch.mp3"); // Was: audio/fx_touch.mp3
+    this.load.audio("snd_gameover", ["music_gameover.mp3", "music_gameover.ogg"]); 
+    this.load.audio("snd_touchshooter", ["fx_touch.mp3", "fx_touch.ogg"]); 
   },
   create: function () {
     // Check if gameSettings exists, if not create default values

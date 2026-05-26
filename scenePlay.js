@@ -8,7 +8,7 @@ var scenePlay = new Phaser.Class({
     this.selectedHero = currentHero;
   },
   preload: function () {
-    this.load.setBaseURL("Assets/");
+    this.load.setBaseURL("./Assets/");
     // Change these lines:
     this.load.image("BG1", "BG1.png");           // Was: images/BG1.png
     this.load.image("BG2", "BG2.png");           // Was: images/BG2.png
@@ -26,9 +26,9 @@ var scenePlay = new Phaser.Class({
     this.load.image("Musuh2", "Musuh2.png");         // Was: images/Musuh2.png
     this.load.image("Musuh3", "Musuh3.png");         // Was: images/Musuh3.png
     this.load.image("MusuhBos", "MusuhBos.png");     // Was: images/MusuhBos.png
-    this.load.audio("snd_shoot", "fx_shoot.mp3");   // Was: audio/fx_shoot.mp3
-    this.load.audio("snd_explode", "fx_explode.mp3"); // Was: audio/fx_explode.mp3
-    this.load.audio("snd_play", "music_play.mp3");   // Was: audio/music_play.mp3
+    this.load.audio("snd_shoot", ["fx_shoot.mp3", "fx_shoot.ogg"]);
+    this.load.audio("snd_explode", ["fx_explode.mp3", "fx_explode.ogg"]);
+    this.load.audio("snd_play", "music_play.mp3"); 
   },
   create: function () {
     // Initialize high score system if it doesn't exist

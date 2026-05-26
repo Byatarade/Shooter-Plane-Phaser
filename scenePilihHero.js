@@ -9,7 +9,7 @@ var scenePilihHero = new Phaser.Class({
   },
   init: function () {},
   preload: function () {
-    this.load.setBaseURL("Assets/");
+    this.load.setBaseURL("./Assets/");
     // Change these lines:
     this.load.image("BGPilihPesawat", "BGPilihPesawat.png"); // Was: images/BGPilihPesawat.png
     this.load.image("ButtonMenu", "ButtonMenu.png");     // Was: images/ButtonMenu.png
@@ -17,7 +17,7 @@ var scenePilihHero = new Phaser.Class({
     this.load.image("ButtonPrev", "ButtonPrev.png");     // Was: images/ButtonPrev.png
     this.load.image("Pesawat1", "Pesawat1.png");         // Was: images/Pesawat1.png
     this.load.image("Pesawat2", "Pesawat2.png");         // Was: images/Pesawat2.png
-    this.load.audio("snd_touchshooter", "fx_touch.mp3"); // Was: audio/fx_touch.mp3
+    this.load.audio("snd_touchshooter", ["fx_touch.mp3", "fx_touch.ogg"]); 
   },
   create: function () {
      if (snd_touch == null){
