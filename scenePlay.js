@@ -8,7 +8,7 @@ var scenePlay = new Phaser.Class({
     this.selectedHero = currentHero;
   },
   preload: function () {
-    this.load.setBaseURL("assets/");
+    this.load.setBaseURL("Assets/");
     // Change these lines:
     this.load.image("BG1", "BG1.png");           // Was: images/BG1.png
     this.load.image("BG2", "BG2.png");           // Was: images/BG2.png

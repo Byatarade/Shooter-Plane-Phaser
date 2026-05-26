@@ -6,7 +6,7 @@ var sceneMenu = new Phaser.Class({
   },
   init: function () {},
   preload: function () {
-    this.load.setBaseURL("assets/");
+    this.load.setBaseURL("Assets/");
     // Change these lines:
     this.load.image("BGPlay", "BGPlay.png"); // Was: images/BGPlay.png
     this.load.image("Title", "Title.png");     // Was: images/Title.png

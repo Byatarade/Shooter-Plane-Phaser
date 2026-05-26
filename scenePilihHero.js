@@ -9,7 +9,7 @@ var scenePilihHero = new Phaser.Class({
   },
   init: function () {},
   preload: function () {
-    this.load.setBaseURL("assets/");
+    this.load.setBaseURL("Assets/");
     // Change these lines:
     this.load.image("BGPilihPesawat", "BGPilihPesawat.png"); // Was: images/BGPilihPesawat.png
     this.load.image("ButtonMenu", "ButtonMenu.png");     // Was: images/ButtonMenu.png
